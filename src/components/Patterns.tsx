@@ -1,89 +1,83 @@
-import Memento from "./memento/memento";
-import Memento2 from "./memento/Memento2.";
-import Template from "./template/template";
-import Visitor from "./Visitor/Visitor";
-import Command from "./command/command";
-import Observer from "./observer/observer";
-import State from "./state/state";
-import Iterator from "./iterator/iterator";
-import Chain from "./chain/chain";
-import Proxy from "./proxy/proxy";
-import Decorator from "./decorator/decorator";
-import Facade from "./facade/Facade";
-import Adapter from "./adapter/adapter";
-import Composite from "./composite/composite";
-import Bridge from "./bridge/bridge";
-import Flyweight from "./flyweight/flyweight";
-import Mediator from "./Mediator/mediator";
-import Strategy from "./Strategy/Strategy";
-import Builder from "./Builder/builder";
-import Prototype from "./prototype/prototype";
-import AbstractFactory from "./abstract-factory/abstract-factory";
-import Factory from "./Factory/Factory";
-import Singleton from "./singleton/Singleton";
+import Memento from "./webDev/memento/memento";
+import Memento2 from "./webDev/memento/Memento2.";
+import Template from "./webDev/template/template";
+import Visitor from "./webDev/visitor/Visitor";
+import Command from "./webDev/command/command";
+import Observer from "./webDev/observer/observer";
+import State from "./webDev/state/state";
+import Iterator from "./webDev/iterator/iterator";
+import Chain from "./webDev/chain/chain";
+import Proxy from "./webDev/proxy/proxy";
+import Decorator from "./webDev/decorator/decorator";
+import Facade from "./webDev/facade/Facade";
+import Adapter from "./webDev/adapter/adapter";
+import Composite from "./webDev/composite/composite";
+import Bridge from "./webDev/bridge/bridge";
+import Flyweight from "./webDev/flyweight/flyweight";
+import Mediator from "./webDev/Mediator/mediator";
+import Strategy from "./webDev/strategy/Strategy";
+import Builder from "./webDev/builder/builder";
+import Prototype from "./webDev/prototype/prototype";
+import AbstractFactory from "./webDev/abstract-factory/abstract-factory";
+import Factory from "./webDev/factory/Factory";
+import Singleton from "./webDev/singleton/Singleton";
 import {BrowserRouter, Route, NavLink, HashRouter} from "react-router-dom";
+import {useState} from "react";
+import Main from "./webDev/main/main";
+
+import Command_v from './vladLen/command/command'
 
 
 
 
 const Patterns = () => {
+
+    const [patterns,setPatterns]=useState(()=>[
+        'Main', 'Singleton','Factory','AbstractFactory','Builder','Decorator',
+        'Facade','Proxy','Adapter','Composite','Bridge','Flyweight',
+        'Mediator','Chain','Strategy','Memento','Template','Visitor',
+        'Command','Observer','State','Iterator','Prototype'
+    ])
+
     return (
         <div>
-            <li>поведінкові</li>
-            <li>струкрурні</li>
-            <li>породжуючі</li>
 
             <HashRouter>
                 <div>
-                    <div><NavLink to="Singleton">Singleton </NavLink></div>
-                    <div><NavLink to="Factory">Factory </NavLink></div>
-                    <div><NavLink to="AbstractFactory">AbstractFactory </NavLink></div>
-                    <div><NavLink to="Builder">Builder </NavLink></div>
-                    <div><NavLink to="Decorator">Decorator </NavLink></div>
-                    <div><NavLink to="Facade">Facade </NavLink></div>
-                    <div><NavLink to="Proxy">Proxy </NavLink></div>
-                    <div><NavLink to="Adapter">Adapter </NavLink></div>
-                    <div><NavLink to="Composite">Composite </NavLink></div>
-                    <div><NavLink to="Bridge">Bridge </NavLink></div>
-                    <div><NavLink to="Flyweight">Flyweight </NavLink></div>
-                    <div><NavLink to="Mediator">Mediator </NavLink></div>
-                    <div><NavLink to="Chain">Chain </NavLink></div>
-                    <div><NavLink to="Strategy">Strategy </NavLink></div>
-                    <div><NavLink to="Memento">Memento </NavLink></div>
-                    <div><NavLink to="Template">Template </NavLink></div>
-                    <div><NavLink to="Visitor">Visitor </NavLink></div>
-                    <div><NavLink to="Command">Command </NavLink></div>
-                    <div><NavLink to="Observer">Observer </NavLink></div>
-                    <div><NavLink to="State">State </NavLink></div>
-                    <div><NavLink to="Iterator">Iterator </NavLink></div>
-                    <div><NavLink to="Prototype">Prototype </NavLink></div>
+                    {patterns.map(pattern=>(<div key={pattern}>
+                        <NavLink to={`/webDev/${pattern}`}>{pattern} </NavLink>
+                    </div>))}
                 </div>
 
 
+                <Route path='/Main' component={Main}   />
+                <Route path='/webDev/Singleton'  component={Singleton} />
+                <Route path='/webDev/Factory'  component={Factory} />
+                <Route path='/webDev/AbstractFactory'  component={AbstractFactory} />
+                <Route path='/webDev/Builder'  component={Builder} />
+                <Route path='/webDev/Decorator'  component={Decorator} />
+                <Route path='/webDev/Facade'  component={Facade} />
+                <Route path='/webDev/Proxy'  component={Proxy} />
+                <Route path='/webDev/Adapter'  component={Adapter} />
+                <Route path='/webDev/Composite'  component={Composite} />
+                <Route path='/webDev/Bridge'  component={Bridge} />
+                <Route path='/webDev/Flyweight'  component={Flyweight} />
+                <Route path='/webDev/Mediator'  component={Mediator} />
+                <Route path='/webDev/Chain'  component={Chain} />
+                <Route path='/webDev/Strategy'  component={Strategy} />
+                <Route path='/webDev/Memento'  component={Memento} />
+                <Route path='/webDev/Template'  component={Template} />
+                <Route path='/webDev/Visitor'  component={Visitor} />
+                <Route path='/webDev/Command'  component={Command} />
+                <Route path='/webDev/Observer'  component={Observer} />
+                <Route path='/webDev/State'  component={State} />
+                <Route path='/webDev/Iterator'  component={Iterator} />
+                <Route path='/webDev/Prototype'  component={Prototype} />
 
-                <Route path='/' component={()=><div>Main</div>}   />
-                <Route path='/Singleton'  component={Singleton} />
-                <Route path='/Factory'  component={Factory} />
-                <Route path='/AbstractFactory'  component={AbstractFactory} />
-                <Route path='/Builder'  component={Builder} />
-                <Route path='/Decorator'  component={Decorator} />
-                <Route path='/Facade'  component={Facade} />
-                <Route path='/Proxy'  component={Proxy} />
-                <Route path='/Adapter'  component={Adapter} />
-                <Route path='/Composite'  component={Composite} />
-                <Route path='/Bridge'  component={Bridge} />
-                <Route path='/Flyweight'  component={Flyweight} />
-                <Route path='/Mediator'  component={Mediator} />
-                <Route path='/Chain'  component={Chain} />
-                <Route path='/Strategy'  component={Strategy} />
-                <Route path='/Memento'  component={Memento} />
-                <Route path='/Template'  component={Template} />
-                <Route path='/Visitor'  component={Visitor} />
-                <Route path='/Command'  component={Command} />
-                <Route path='/Observer'  component={Observer} />
-                <Route path='/State'  component={State} />
-                <Route path='/Iterator'  component={Iterator} />
-                <Route path='/Prototype'  component={Prototype} />
+                <Route exact path='/' component={Command_v}   />
+
+
+
             </HashRouter>
 
             {/*<Memento2/>*/}

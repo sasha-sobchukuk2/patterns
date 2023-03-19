@@ -1,8 +1,8 @@
 import React from 'react';
-import img from "../memento/img.png";
-import img_1 from "../memento/img_1.png";
-import img_2 from "../memento/img_2.png";
-import img_3 from "../memento/img_3.png";
+import img from "./img.png";
+import img_1 from "./img_1.png";
+import img_2 from "./img_2.png";
+import img_3 from "./img_3.png";
 
 const Command = () => {
 
